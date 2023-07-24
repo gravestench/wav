@@ -1,10 +1,8 @@
 dmitri.shuralyov.com/gpu/mtl v0.0.0-20190408044501-666a987793e9/go.mod h1:H6x//7gZCb22OMCxBHrMx7a5I7Hp++hsVxbQ4BYO7hU=
 github.com/BurntSushi/xgb v0.0.0-20160522181843-27f122750802/go.mod h1:IVnqGOEym/WlBOVXweHU+Q+/VP0lqqI8lqeDx9IjBqo=
 github.com/JoshVarga/blast v0.0.0-20180421040937-681c804fb9f0/go.mod h1:h/5OEGj4G+fpYxluLjSMZbFY011ZxAntO98nCl8mrCs=
-github.com/OpenDiablo2/OpenDiablo2 v0.0.0-20210514222603-a688d660a0f7 h1:TGxU+HHMHIl5aOZk/Yd3uEP+ALbxvysnuhbMkg1f6xY=
-github.com/OpenDiablo2/OpenDiablo2 v0.0.0-20210514222603-a688d660a0f7/go.mod h1:IzC2iZNeFCs35eOl/wdvzqSGkHs30d94zomUoaA9QT0=
-github.com/OpenDiablo2/bitstream v0.0.0-20210818234514-9fca7e40e2b3 h1:FR8R13AaTKxSxTS8KzjmU7RnSsKnAVSOQUKYIoGhyY4=
-github.com/OpenDiablo2/bitstream v0.0.0-20210818234514-9fca7e40e2b3/go.mod h1:Wrs2YpoAmqLq/uBAKxZnW145BgzsVsLwxafjI3hkMhE=
+github.com/OpenDiablo2/OpenDiablo2 v0.0.0-20211021131836-7f92c571bf04 h1:5T6Uu+e8gACYPriG9+r2m6pm8kUGTW9+WCn6PovrPUg=
+github.com/OpenDiablo2/OpenDiablo2 v0.0.0-20211021131836-7f92c571bf04/go.mod h1:IzC2iZNeFCs35eOl/wdvzqSGkHs30d94zomUoaA9QT0=
 github.com/creack/pty v1.1.9/go.mod h1:oKZEueFk5CKHvIhNR5MUki03XCEU+Q6VDXinZuGJ33E=
 github.com/davecgh/go-spew v1.1.0/go.mod h1:J7Y8YcW2NihsgmVo/mv3lAwl/skON4iLHjSsI+c5H38=
 github.com/davecgh/go-spew v1.1.1 h1:vj9j/u1bqnvCEfJOwUhtlOARqs3+rkHYY13jYWTU97c=
@@ -15,6 +13,8 @@ github.com/go-restruct/restruct v1.2.0-alpha/go.mod h1:KqrpKpn4M8OLznErihXTGLlsX
 github.com/gofrs/flock v0.8.0/go.mod h1:F1TvTiK9OcQqauNUHlbJvyl9Qa1QvF/gOUDKA14jxHU=
 github.com/google/uuid v1.1.2/go.mod h1:TIyPZe4MgqvfeYDBFedMoGGpEw/LqOeaOT+nhxU+yHo=
 github.com/gravestench/akara v0.0.0-20201014060234-a64208a7fd3c/go.mod h1:fTeda1SogMg5Lkd4lXMEd/Pk/a5/gQuLGaAI2rn1PBQ=
+github.com/gravestench/bitstream v0.0.0-20230724170509-bd9e99040b01 h1:61zzOeyJLKyBZDcZvT4m12O2dcT0KrBVpYQXXR8JYlQ=
+github.com/gravestench/bitstream v0.0.0-20230724170509-bd9e99040b01/go.mod h1:JZXNAOZdKM3nhUDhdIuys8Icq2YH/716Hj/EdFggUlI=
 github.com/hajimehoshi/bitmapfont/v2 v2.1.0/go.mod h1:2BnYrkTQGThpr/CY6LorYtt/zEPNzvE/ND69CRTaHMs=
 github.com/hajimehoshi/ebiten/v2 v2.0.2/go.mod h1:AbHP/SS226aFTex/izULVwW0D2AuGyqC4AVwilmRjOg=
 github.com/hajimehoshi/file2byteslice v0.0.0-20200812174855-0e5e8a80490e/go.mod h1:CqqAHp7Dk/AqQiwuhV1yT2334qbA/tFWQW0MD2dGqUE=

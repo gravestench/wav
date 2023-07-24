@@ -1,10 +1,11 @@
 package pkg
 
 import (
-	"github.com/OpenDiablo2/bitstream"
+	"github.com/gravestench/bitstream"
 )
 
 // WavDecompress decompresses wav files
+//
 //nolint:gomnd // binary decode magic
 func WavDecompress(data []byte, channelCount int) ([]byte, error) { //nolint:funlen,gocognit,gocyclo // can't reduce
 	Array1 := []int{0x2c, 0x2c}
@@ -52,7 +53,7 @@ func WavDecompress(data []byte, channelCount int) ([]byte, error) { //nolint:fun
 		}
 
 		Array2[i] = int(temp)
-		_, err = output.WriteBytes([]byte{byte(temp), byte(temp>>8)})
+		_, err = output.WriteBytes([]byte{byte(temp), byte(temp >> 8)})
 		if err != nil {
 			return nil, err
 		}
@@ -77,7 +78,7 @@ func WavDecompress(data []byte, channelCount int) ([]byte, error) { //nolint:fun
 					Array1[channel]--
 				}
 
-				if _, err = output.WriteBytes([]byte{byte(Array2[channel]), byte(Array2[channel]>>8)}); err != nil {
+				if _, err = output.WriteBytes([]byte{byte(Array2[channel]), byte(Array2[channel] >> 8)}); err != nil {
 					return nil, err
 				}
 			case 1:
@@ -137,7 +138,7 @@ func WavDecompress(data []byte, channelCount int) ([]byte, error) { //nolint:fun
 			}
 			Array2[channel] = temp3
 
-			if _, err = output.WriteBytes([]byte{byte(temp3), byte(temp3>>8)}); err != nil {
+			if _, err = output.WriteBytes([]byte{byte(temp3), byte(temp3 >> 8)}); err != nil {
 				return nil, err
 			}
 
