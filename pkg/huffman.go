@@ -1,4 +1,3 @@
-// Package d2compression is used for decompressing WAV files.
 package pkg
 
 // MpqHuffman.go based on the original CS file
@@ -374,6 +373,7 @@ func buildTree(tail *linkedNode) *linkedNode {
 }
 
 // HuffmanDecompress decompresses huffman-compressed data
+//
 //nolint:gomnd // binary decode magic
 func HuffmanDecompress(data []byte) []byte {
 	comptype := data[0]
