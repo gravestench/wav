@@ -1,9 +1,5 @@
 package pkg
 
-import (
-	"github.com/gravestench/bitstream"
-)
-
 // WavDecompress decompresses wav files
 //
 //nolint:gomnd // binary decode magic
@@ -33,36 +29,33 @@ func WavDecompress(data []byte, channelCount int) ([]byte, error) { //nolint:fun
 		-1, 2, -1, 4, -1, 6, -1, 8,
 	}
 
-	input := bitstream.NewReader(data)
-	output := bitstream.Writer{}
+	input := CreateStreamReader(data)
+	output := CreateStreamWriter()
 
-	_, err := input.Next(1).Bytes().AsBytes()
+	_, err := input.ReadByte()
 	if err != nil {
 		return nil, err
 	}
 
-	shift, err := input.Next(1).Bytes().AsByte()
+	shift, err := input.ReadByte()
 	if err != nil {
 		return nil, err
 	}
 
 	for i := 0; i < channelCount; i++ {
-		temp, err := input.Next(2).Bytes().AsInt16()
+		temp, err := input.ReadInt16()
 		if err != nil {
 			return nil, err
 		}
 
 		Array2[i] = int(temp)
-		_, err = output.WriteBytes([]byte{byte(temp), byte(temp >> 8)})
-		if err != nil {
-			return nil, err
-		}
+		output.PushInt16(temp)
 	}
 
 	channel := channelCount - 1
 
-	for input.Position() < input.Length() {
-		value, err := input.Next(1).Bytes().AsByte()
+	for input.Position() < input.Size() {
+		value, err := input.ReadByte()
 		if err != nil {
 			return nil, err
 		}
@@ -78,9 +71,7 @@ func WavDecompress(data []byte, channelCount int) ([]byte, error) { //nolint:fun
 					Array1[channel]--
 				}
 
-				if _, err = output.WriteBytes([]byte{byte(Array2[channel]), byte(Array2[channel] >> 8)}); err != nil {
-					return nil, err
-				}
+				output.PushInt16(int16(Array2[channel]))
 			case 1:
 				Array1[channel] += 8
 				if Array1[channel] > 0x58 {
@@ -137,11 +128,7 @@ func WavDecompress(data []byte, channelCount int) ([]byte, error) { //nolint:fun
 				}
 			}
 			Array2[channel] = temp3
-
-			if _, err = output.WriteBytes([]byte{byte(temp3), byte(temp3 >> 8)}); err != nil {
-				return nil, err
-			}
-
+			output.PushInt16(int16(temp3))
 			Array1[channel] += sLookup2[value&0x1f]
 
 			if Array1[channel] < 0 {
@@ -152,5 +139,5 @@ func WavDecompress(data []byte, channelCount int) ([]byte, error) { //nolint:fun
 		}
 	}
 
-	return output.Bytes(), nil
+	return output.GetBytes(), nil
 }
